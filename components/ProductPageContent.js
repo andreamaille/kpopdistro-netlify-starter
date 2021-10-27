@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { formatPrice } from '../utilityFunctions';
 import { useAppContext } from '../state';
+import { StyledButton } from './Button.style.js'
 
 function getCurrentVariantObject(vars, id) {
   return vars.filter((v) => {
@@ -10,6 +11,7 @@ function getCurrentVariantObject(vars, id) {
 
 function VariantForm({ vars, current, pick, setQ }) {
   return (
+    <StyledButton buttonLabel="Really?" backgroundColor="red"></StyledButton>
     <form className="addToCart">
       {vars.length > 1 &&
         vars.map((v, index) => {
