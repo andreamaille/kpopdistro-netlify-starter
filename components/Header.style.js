@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
 
 export const StyledH1 = styled.h1`
   font-family: 'Ubuntu', sans-serif;
-  font-size: var(--font-size-display);
+  font-size: 80px;
   text-shadow: 4px 3px 0 var(--pale-pink);
   text-transform: uppercase;
   text-align: center;
