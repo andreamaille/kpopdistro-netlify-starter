@@ -1,8 +1,13 @@
-import Link from 'next/link';
+import Link from 'next/link'
+import styled from 'styled-components'
+
+import { StyledButton } from './Button.style.js'
 
 export default function Header() {
   return (
     <header className="app-header">
+      <p>Hello</p>
+      <StyledButton buttonLabel="Really?" backgroundColor="red"></StyledButton>
       <h1>
         <Link href="/">
           <a>Shoperoni</a>
@@ -32,5 +37,5 @@ export default function Header() {
         </ul>
       </nav>
     </header>
-  );
+  )
 }
