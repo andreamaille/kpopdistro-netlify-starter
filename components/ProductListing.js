@@ -8,7 +8,6 @@ import {
 
 export default function ProductListing({ product }) {
   const image = product.images.edges[0].node
-  console.log(product)
   return (
     <StyledProductListing>
       <Link href={`/product/${product.handle}`}>
