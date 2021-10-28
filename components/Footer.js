@@ -1,39 +1,42 @@
+import Link from 'next/link'
+import { StyledFooter, StyledSection, StyledFineprint } from './Footer.style.js'
+
 export default function Footer() {
   return (
     <>
-      <footer>
-        <section className="testimonial">
-          <h2>"The interplay of flavors between the cheese, meats and fruits is an absolute delight."</h2>
-          <p>Paul Hotcakes</p>
-        </section>
-        <section className="app-footer-links">
+      <StyledFooter>
+        <StyledSection>
           <ul>
-            <li>About</li>
-            <li>Company</li>
-            <li>Locations</li>
-            <li>Contact</li>
-            <li>Hours</li>
+            <li>
+              <Link href="/about">
+                <a>About</a>
+              </Link>
+            </li>
+            <li>New Releases</li>
+            <li>Merch</li>
           </ul>
           <ul>
-            <li>Twitter</li>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>LinkedIn</li>
+            <li>KPOP DISTRO</li>
+            <li>77 Ocean Avenue</li>
+            <li>Toronto ON</li>
           </ul>
-          <div className="newsletter">
-            <h2 className="newsletter-title">Sign up for our newsletter:</h2>
-            <input className="newsletter-input" type="email" placeholder="Enter your email" />
-          </div>
-        </section>
-        <div className="project-credit">
+        </StyledSection>
+        <StyledFineprint>
           <p>
-            This project was built with Cassidy Williams' Shopify Next Netlify starter which is{' '}
-            <a href="https://github.com/cassidoo/shopify-next-netlify">open source on GitHub</a>. Follow Cassidy{' '}
-            <a href="https://twitter.com/cassidoo">@cassidoo</a>. KPOP Distro is a fake shopify storefront created and designed by andrea_codes. This
-            project is hosted with <a href="https://bit.ly/2G29YwK">Netlify</a>, built with Next.js.
+            This project was built with{' '}
+            <a href="https://twitter.com/cassidoo">Cassidy Williams'</a> Shopify
+            Next Netlify starter{' '}
+            <a href="https://github.com/cassidoo/shopify-next-netlify">
+              open source on GitHub.
+            </a>{' '}
+            KPOP Distro is a fake shopify storefront created and designed by{' '}
+            <a href="https://twitter.com/andrea_codes">andrea_codes</a>.
+            <Link href="/about">
+              <a> Learn more about this project.</a>
+            </Link>
           </p>
-        </div>
-      </footer>
+        </StyledFineprint>
+      </StyledFooter>
     </>
   )
 }

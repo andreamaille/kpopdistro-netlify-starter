@@ -12,9 +12,12 @@ export default function Home({ products }) {
       </Head>
 
       <Header />
+
       <main>
-        <ul className="product-grid">
-          {products.map((p, index) => <ProductListing key={`product${index}`} product={p.node} />)}
+        <ul>
+          {products.map((p, index) => (
+            <ProductListing key={`product${index}`} product={p.node} />
+          ))}
         </ul>
       </main>
 
@@ -24,7 +27,9 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  const products = await fetch(`${process.env.NETLIFY_URL}/.netlify/functions/get-product-list`)
+  const products = await fetch(
+    `${process.env.NETLIFY_URL}/.netlify/functions/get-product-list`
+  )
     .then(res => res.json())
     .then(response => {
       console.log('--- built home page ---')

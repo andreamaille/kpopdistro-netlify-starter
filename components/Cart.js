@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react';
-import { useAppContext } from '../state';
-import CartTable from './CartTable';
-import CartTotal from './CartTotal';
+import { useState, useEffect } from 'react'
+import { useAppContext } from '../state'
+import CartTable from './CartTable'
+import CartTotal from './CartTotal'
 
 export default function Cart() {
-  const [showProducts, setShowProducts] = useState(true);
-  const [products, setProducts] = useState([]);
-  const [cost, setCost] = useState({});
-  const { cartId, setCartId } = useAppContext();
+  const [showProducts, setShowProducts] = useState(true)
+  const [products, setProducts] = useState([])
+  const [cost, setCost] = useState({})
+  const { cartId, setCartId } = useAppContext()
 
   useEffect(() => {
-    const localCart = cartId;
+    const localCart = cartId
 
-    let data;
+    let data
 
     if (localCart === null) {
-      setShowProducts(false);
+      setShowProducts(false)
     } else {
-      setCartId(localCart);
+      setCartId(localCart)
       data = fetch(`${process.env.NETLIFY_URL}/.netlify/functions/get-cart`, {
         method: 'post',
         body: JSON.stringify({
@@ -25,14 +25,14 @@ export default function Cart() {
         }),
         headers: { 'Content-Type': 'application/json' },
       })
-        .then((res) => res.json())
-        .then((response) => {
-          setProducts(response?.cart?.lines.edges);
-          setCost(response?.cart?.estimatedCost);
-          return response;
-        });
+        .then(res => res.json())
+        .then(response => {
+          setProducts(response?.cart?.lines.edges)
+          setCost(response?.cart?.estimatedCost)
+          return response
+        })
     }
-  }, []);
+  }, [cartId, setCartId])
 
   return (
     <div>
@@ -51,5 +51,5 @@ export default function Cart() {
         </div>
       )}
     </div>
-  );
+  )
 }

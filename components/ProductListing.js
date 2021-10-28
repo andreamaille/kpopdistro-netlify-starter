@@ -1,23 +1,28 @@
-import Link from 'next/link';
+import Link from 'next/link'
+
+import {
+  StyledProductListing,
+  StyledImgContainer,
+  StyledProductDetails,
+} from './ProductListing.style'
 
 export default function ProductListing({ product }) {
-  let image = product.images.edges[0].node;
+  const image = product.images.edges[0].node
+  console.log(product)
   return (
-    <li className="product-card">
-      <div className="product-card-frame">
-        <img className="prodimg" src={image.src} alt={image.altText} />
-      </div>
-      <div className="product-card-text">
-        <h3 className="product-card-title">{product.title}</h3>
-        <p className="product-card-description">
-          {product.description.substring(0, 60)}...
-        </p>
-      </div>
+    <StyledProductListing>
       <Link href={`/product/${product.handle}`}>
         <a>
-          <button>View Item {`>`} </button>
+          <h3>{product.title}</h3>
+          <StyledImgContainer>
+            <img src={image.src} alt={image.altText} />
+          </StyledImgContainer>
+          <StyledProductDetails>
+            <p>{product.tags[0]}</p>
+            <p>$ {product.priceRange.minVariantPrice.amount}</p>
+          </StyledProductDetails>
         </a>
       </Link>
-    </li>
-  );
+    </StyledProductListing>
+  )
 }

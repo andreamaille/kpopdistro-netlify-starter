@@ -15,13 +15,13 @@
  * TODO: Add enhancement for pagination
  */
 
-const { postToShopify } = require('./utils/postToShopify');
+const { postToShopify } = require('./utils/postToShopify')
 
 exports.handler = async () => {
   try {
-    console.log('--------------------------------');
-    console.log('Retrieving product list...');
-    console.log('--------------------------------');
+    console.log('--------------------------------')
+    console.log('Retrieving product list...')
+    console.log('--------------------------------')
     const shopifyResponse = await postToShopify({
       query: `
         query getProductList {
@@ -33,6 +33,7 @@ exports.handler = async () => {
                 description
                 title
                 totalInventory
+                tags
                 variants(first: 5) {
                   edges {
                     node {
@@ -69,13 +70,13 @@ exports.handler = async () => {
           }
         }
       `,
-    });
+    })
 
     return {
       statusCode: 200,
       body: JSON.stringify(shopifyResponse),
-    };
+    }
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
+}

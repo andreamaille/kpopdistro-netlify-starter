@@ -13,22 +13,22 @@ function VariantForm({ vars, current, pick, setQ }) {
     <form className="addToCart">
       {vars.length > 1 &&
         vars.map((v, index) => (
-            <div className="product-page-price" key={`variant${index}`}>
-              <label>
-                <input
-                  name="Product Variant"
-                  type="radio"
-                  id={v.node.id}
-                  defaultChecked={index === 0}
-                  onChange={() => {
-                    pick(v.node.id);
-                  }}
-                />
-                {` ${v.node.title}`}
-              </label>
-              <br />
-            </div>
-          ))}
+          <div className="product-page-price" key={`variant${index}`}>
+            <label>
+              <input
+                name="Product Variant"
+                type="radio"
+                id={v.node.id}
+                defaultChecked={index === 0}
+                onChange={() => {
+                  pick(v.node.id)
+                }}
+              />
+              {` ${v.node.title}`}
+            </label>
+            <br />
+          </div>
+        ))}
       <input
         type="number"
         placeholder="Quantity"
@@ -56,7 +56,8 @@ export default function ProductPageContent({ product }) {
   const { cartId, setCartId } = useAppContext()
 
   useEffect(() => {
-    const variantPrice = getCurrentVariantObject(vars, chosenVariant).node.priceV2.amount
+    const variantPrice = getCurrentVariantObject(vars, chosenVariant).node
+      .priceV2.amount
 
     setCost(formatPrice(variantPrice * quantity))
   }, [chosenVariant, quantity, cost, vars])
@@ -72,11 +73,14 @@ export default function ProductPageContent({ product }) {
       quantity,
     }
 
-    const cartResponse = await fetch(`${process.env.NETLIFY_URL}/.netlify/functions/add-to-cart`, {
-      method: 'post',
-      body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' },
-    })
+    const cartResponse = await fetch(
+      `${process.env.NETLIFY_URL}/.netlify/functions/add-to-cart`,
+      {
+        method: 'post',
+        body: JSON.stringify(body),
+        headers: { 'Content-Type': 'application/json' },
+      }
+    )
 
     const data = await cartResponse.json()
     setCartId(data.id)
@@ -87,14 +91,23 @@ export default function ProductPageContent({ product }) {
   return (
     <section className="product-page-content">
       <div>
-        <img src={image.src} alt={image.altText} className="product-page-image" />
+        <img
+          src={image.src}
+          alt={image.altText}
+          className="product-page-image"
+        />
       </div>
       <div className="product-copy">
         <h1>{product.title}</h1>
         <h2>{cost}</h2>
         <p>{product.description}</p>
 
-        <VariantForm vars={vars} current={chosenVariant} pick={setChosenVariant} setQ={setQuantity} />
+        <VariantForm
+          vars={vars}
+          current={chosenVariant}
+          pick={setChosenVariant}
+          setQ={setQuantity}
+        />
 
         {product.totalInventory > 0 ? (
           <button onClick={handleAddToCart}>Add to Cart</button>
