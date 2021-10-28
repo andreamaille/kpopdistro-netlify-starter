@@ -17,7 +17,7 @@ export default function ProductListing({ product }) {
             <img src={image.src} alt={image.altText} />
           </StyledImgContainer>
           <StyledProductDetails>
-            <p>{product.tags[0]}</p>
+            {/* <p>{product.tags}</p> */}
             <p>$ {product.priceRange.minVariantPrice.amount}</p>
           </StyledProductDetails>
         </a>
