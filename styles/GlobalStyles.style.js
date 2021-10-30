@@ -5,11 +5,13 @@ export const GlobalStyles = createGlobalStyle`
 	${normalize}
 	
 	:root {
-		--dark-pink: #DD747D;
-		--pale-pink: #E3CDCB;
-		--light-pink: #ECA29D;
-		--dark-purple: #4D4458;
-		--white: #FFF;
+		--secondary: #DD747D;
+		--highlight: #F6E8E7;
+		--primary: #F7CBC6;
+
+		--dark-purple: #28242D;
+		--white: #fff;
+		--black: #000;
 
 		--font-size-display: 48px;
 		--font-size-h1: 40px;
@@ -20,6 +22,8 @@ export const GlobalStyles = createGlobalStyle`
 		--font-size-base: 16px;
 		--font-size-sm: 13px;
 		--font-size-micro: 11px;
+
+		--border: 1px solid var(--black);
 	}
 
 	@media (min-width: 768px) {
@@ -61,12 +65,17 @@ export const GlobalStyles = createGlobalStyle`
 
 	main {
 		width: 80%;
-		margin: 48px auto;
+		margin: 18px auto;
+		background-color: var(--white);
+		border: var(--border);
+		padding: 16px;
 	}
 
 	main ul {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		margin: 24px auto;
+		width: 95%;
 	}
 `

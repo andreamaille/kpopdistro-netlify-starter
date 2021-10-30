@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
 export const StyledProductListing = styled.li`
-  width: 28%;
+  width: 27%;
 
-  background-color: var(--light-pink);
+  background-color: var(--highlight);
   padding: 16px;
-  border-radius: 10px;
   text-align: center;
   &:hover {
-    box-shadow: 13px 13px 0px 2px var(--dark-purple);
+    box-shadow: 13px 13px 0px 2px var(--secondary);
   }
   & a {
-    color: var(--white);
+    color: var(--black);
   }
 
   & h3 {
@@ -24,18 +23,11 @@ export const StyledImgContainer = styled.div`
   margin: 0 auto;
   & img {
     width: 100%;
-    height: 275px;
+    height: 200px;
     object-fit: cover;
   }
 `
 
 export const StyledProductDetails = styled.div`
   margin: 8px 0;
-  & p:first-child {
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  & p:last-child {
-    color: var(--dark-purple);
-  }
 `

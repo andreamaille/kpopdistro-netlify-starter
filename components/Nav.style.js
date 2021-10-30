@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 export const StyledNav = styled.nav`
-  background-color: var(--light-pink);
+  background-color: var(--white);
+  border: 1px solid var(--black);
   padding: 16px;
+  width: 80%;
   position: absolute;
   bottom: 0;
-  right: 0;
-  left: 0;
-  border-top: 5px solid var(--dark-purple);
-  border-bottom: 5px solid var(--dark-purple);
+
   & ul {
     display: flex;
     justify-content: center;
@@ -19,7 +18,7 @@ export const StyledNav = styled.nav`
   }
 
   & li:first-child {
-    padding-left: 0;
+    padding-left: 0;xw
   }
 
   & li:last-child {
@@ -27,11 +26,11 @@ export const StyledNav = styled.nav`
   }
 
   & a {
-    color: var(--dark-purple);
+    color: var(--black);
     text-transform: uppercase;
   }
 
   & a:hover {
-    border-bottom: 2px solid var(--dark-purple);
+    border-bottom: 2px solid var(--secondary);
   }
 `
