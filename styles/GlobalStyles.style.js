@@ -60,11 +60,12 @@ export const GlobalStyles = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		color: var(--white);
+		color: var(--black);
 	}
 
 	main {
 		width: 80%;
+		max-width: 1000px;
 		margin: 18px auto;
 		background-color: var(--white);
 		border: var(--border);

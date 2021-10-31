@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const StyledProductListing = styled.li`
   width: 27%;
-
   background-color: var(--highlight);
   padding: 16px;
   text-align: center;
+  margin-bottom: 24px;
   &:hover {
     box-shadow: 13px 13px 0px 2px var(--secondary);
   }

@@ -5,6 +5,7 @@ export const StyledNav = styled.nav`
   border: 1px solid var(--black);
   padding: 16px;
   width: 80%;
+  max-width: 1000px;
   position: absolute;
   bottom: 0;
 
