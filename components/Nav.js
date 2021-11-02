@@ -7,7 +7,7 @@ export default function Nav() {
     <StyledNav>
       <ul>
         <li>
-          <Link href="/">
+          <Link href="/newReleases">
             <a>New Releases</a>
           </Link>
         </li>
