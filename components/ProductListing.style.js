@@ -13,8 +13,9 @@ export const StyledProductListing = styled.li`
     color: var(--black);
   }
 
-  & h3 {
+  & h2 {
     margin-bottom: 8px;
+    font-size: var(--font-size-base);
     text-transform: uppercase;
   }
 `
@@ -30,4 +31,7 @@ export const StyledImgContainer = styled.div`
 
 export const StyledProductDetails = styled.div`
   margin: 8px 0;
+  & p {
+    font-weight: 500;
+  }
 `

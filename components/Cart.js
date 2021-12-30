@@ -11,13 +11,13 @@ export default function Cart() {
 
   useEffect(() => {
     const localCart = cartId
-
     let data
 
     if (localCart === null) {
       setShowProducts(false)
     } else {
       setCartId(localCart)
+
       data = fetch(`${process.env.NETLIFY_URL}/.netlify/functions/get-cart`, {
         method: 'post',
         body: JSON.stringify({

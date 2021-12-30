@@ -2,33 +2,34 @@ import styled from 'styled-components'
 
 export const StyledNewReleasesCard = styled.div`
   display: flex;
-  margin-bottom: 24px;
-
-  & div:first-child {
-    width: 30%;
-    background-color: var(--highlight);
-    padding: 16px;
-  }
-  & div:last-child {
-    width: 70%;
-    text-align: left;
-  }
-
-  & h3 {
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
+  flex-direction: ${props => props.flexDirection};
+  margin: 24px 24px 0;
 `
 export const StyledImgContainer = styled.div`
-  width: 80%;
-  margin: 0 auto;
+  width: 50%;
+  padding: 24px;
   & img {
     width: 100%;
-    height: 200px;
+    height: 400px;
     object-fit: cover;
   }
 `
-
 export const StyledProductDetails = styled.div`
-  margin: 8px 0;
+  width: 50%;
+  padding: 24px;
+  & p {
+    margin: 16px 0;
+    font-weight: 400;
+  }
+`
+
+export const StyledLink = styled.a`
+  border: 2px solid var(--black);
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+  &:hover {
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+  }
 `

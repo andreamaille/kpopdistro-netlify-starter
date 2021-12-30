@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import Heading from '@components/Heading'
 import NewReleasesCard from '@components/NewReleasesCard'
 
 export default function NewReleases({ newReleases }) {
@@ -10,13 +11,18 @@ export default function NewReleases({ newReleases }) {
         <title>K-POP Distro</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
       <main>
-        <h1>{newReleases.title}</h1>
-        <p>{newReleases.description}</p>
+        <Heading
+          title={newReleases.title}
+          description={newReleases.description}
+        />
         {newReleases.products.edges.map((p, index) => (
-          <NewReleasesCard key={`newRelease${index}`} product={p.node} />
+          <NewReleasesCard
+            key={`newRelease${index}`}
+            product={p.node}
+            flexDirection={index / 2 === 0 ? 'row' : 'row-reverse'}
+          />
         ))}
       </main>
       <Footer />

@@ -12,7 +12,7 @@ export default function ProductListing({ product }) {
     <StyledProductListing>
       <Link href={`/product/${product.handle}`}>
         <a>
-          <h3>{product.title}</h3>
+          <h2>{product.title}</h2>
           <StyledImgContainer>
             <img src={image.src} alt={image.altText} />
           </StyledImgContainer>

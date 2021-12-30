@@ -3,7 +3,7 @@ import { StyledSection } from './About.style.js'
 export default function About() {
   return (
     <StyledSection>
-      <h3>About this Project</h3>
+      <h2>About this Project</h2>
       <p>
         KPOP Distro is a fake shopify storefront created and designed by{' '}
         <a href="https://twitter.com/andrea_codes">andrea_codes</a>. This

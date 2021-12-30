@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
-  background-image: url(${'bg-grid.jpg'});
+  background-image: url('/bg-grid.jpg');
   background-size: contain;
   background-position: center;
   display: flex;

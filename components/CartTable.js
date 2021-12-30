@@ -1,22 +1,22 @@
-import { formatPrice, itemTotal } from '../utilityFunctions';
+import { formatPrice, itemTotal } from '../utilityFunctions'
 
 export default function CartTable({ cartItems, cartId, removeItem }) {
-  let removeItemFromCart = (itemId) => {
+  const removeItemFromCart = itemId => {
     fetch(`${process.env.NETLIFY_URL}/.netlify/functions/remove-from-cart`, {
       method: 'POST',
       body: JSON.stringify({
-        cartId: cartId,
+        cartId,
         lineId: itemId,
       }),
     })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log('--- Item deleted ---');
+      .then(response => response.json())
+      .then(response => {
+        console.log('--- Item deleted ---')
 
-        removeItem(response.lines.edges);
-        return response;
-      });
-  };
+        removeItem(response.lines.edges)
+        return response
+      })
+  }
 
   return (
     <table className="cart-table">
@@ -31,12 +31,12 @@ export default function CartTable({ cartItems, cartId, removeItem }) {
       </thead>
       <tbody>
         {cartItems.map((item, index) => {
-          item = item.node;
+          item = item.node
 
-          let merchandiseTitle =
+          const merchandiseTitle =
             item.merchandise.title === 'Default Title'
               ? ''
-              : `(${item.merchandise.title})`;
+              : `(${item.merchandise.title})`
           return (
             <tr className="cart-table-row" key={`cartItem${index}`}>
               <td className="cart-table-cell">
@@ -55,16 +55,16 @@ export default function CartTable({ cartItems, cartId, removeItem }) {
               <td className="cart-table-cell">
                 <button
                   onClick={() => {
-                    removeItemFromCart(item.id);
+                    removeItemFromCart(item.id)
                   }}
                 >
                   Remove Item
                 </button>
               </td>
             </tr>
-          );
+          )
         })}
       </tbody>
     </table>
-  );
+  )
 }

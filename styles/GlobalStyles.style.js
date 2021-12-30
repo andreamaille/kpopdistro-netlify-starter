@@ -43,11 +43,11 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 		font-family: 'Roboto Mono', monospace;
 		font-weight: 700;
-		background-image: url(${'bg-star.jpg'});
+		background-image: url('/bg-star.jpg');
 		background-size: 500px;
 	}
 
-	p, a, h1, h3 {
+	p, a, h1, h3, h2 {
 		margin:0; 
 		padding:0;
 	}
@@ -78,5 +78,23 @@ export const GlobalStyles = createGlobalStyle`
 		justify-content: space-between;
 		margin: 24px auto;
 		width: 95%;
+	}
+
+	h3 {
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0) 50%,
+			var(--highlight) 50%
+		);
+		font-size: var(--font-size-h3);
+		text-transform: uppercase;
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	p {
+		font-weight: 400;
+		font-size: var(--font-size-sm);
 	}
 `

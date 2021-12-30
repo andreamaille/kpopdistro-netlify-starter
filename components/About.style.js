@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
 export const StyledSection = styled.section`
-  color: var(--white);
-  background-color: var(--dark-purple);
+  color: var(--black);
   border-radius: 12px;
   padding: 24px;
-  & h3 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 50px;
-    text-shadow: 4px 3px 0 var(--pale-pink);
-    text-transform: uppercase;
+  & h2 {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 50%,
+      var(--highlight) 50%
+    );
+    display: inline-block;
     margin-bottom: 16px;
   }
   & p {
@@ -18,6 +19,10 @@ export const StyledSection = styled.section`
     margin-bottom: 16px;
   }
   & a {
-    border-bottom: 2px solid var(--white);
+    border-bottom: 2px solid var(--secondary);
+    font-weight: 700;
+    &:hover {
+      border-bottom: 2px solid var(--primary);
+    }
   }
 `

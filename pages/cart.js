@@ -1,14 +1,14 @@
-import Head from 'next/head';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import Cart from '@components/Cart';
-import { useAppContext } from '../state';
+import Head from 'next/head'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import Cart from '@components/Cart'
+import { useAppContext } from '../state'
 
 export default function CartPage() {
   return (
     <>
       <Head>
-        <title>Shoperoni | Cart</title>
+        <title>K-POP Distro | Cart</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -21,5 +21,5 @@ export default function CartPage() {
       </main>
       <Footer />
     </>
-  );
+  )
 }

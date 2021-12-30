@@ -18,6 +18,7 @@ exports.handler = async () => {
                   title
                   id
                   description
+                  handle
                   tags
                   priceRange {
                     maxVariantPrice {

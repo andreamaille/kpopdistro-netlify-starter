@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { formatPrice } from '../utilityFunctions'
 import { useAppContext } from '../state'
-import { StyledButton } from './Button.style.js'
+import {
+  StyledProductPage,
+  StyledProductImgContainer,
+  StyledProductContent,
+} from './ProductPage.style.js'
 
 function getCurrentVariantObject(vars, id) {
   return vars.filter(v => v.node.id === id)[0]
@@ -9,7 +13,6 @@ function getCurrentVariantObject(vars, id) {
 
 function VariantForm({ vars, current, pick, setQ }) {
   return (
-    // <StyledButton buttonLabel="Really?" backgroundColor="red"></StyledButton>
     <form className="addToCart">
       {vars.length > 1 &&
         vars.map((v, index) => (
@@ -55,6 +58,10 @@ export default function ProductPageContent({ product }) {
 
   const { cartId, setCartId } = useAppContext()
 
+  const { count, setCount } = useAppContext()
+
+  const [banner, showBanner] = useState(false)
+
   useEffect(() => {
     const variantPrice = getCurrentVariantObject(vars, chosenVariant).node
       .priceV2.amount
@@ -84,22 +91,25 @@ export default function ProductPageContent({ product }) {
 
     const data = await cartResponse.json()
     setCartId(data.id)
+    showBanner(true)
+    setCount(count + quantity)
 
     return data
   }
 
   return (
-    <section className="product-page-content">
-      <div>
-        <img
-          src={image.src}
-          alt={image.altText}
-          className="product-page-image"
-        />
-      </div>
-      <div className="product-copy">
-        <h1>{product.title}</h1>
-        <h2>{cost}</h2>
+    <StyledProductPage>
+      <StyledProductImgContainer>
+        <img src={image.src} alt={image.altText} />
+      </StyledProductImgContainer>
+
+      <StyledProductContent>
+        <h2>
+          {product.title} - {product.tags}
+        </h2>
+        <p>
+          <span>{cost}</span>
+        </p>
         <p>{product.description}</p>
 
         <VariantForm
@@ -112,11 +122,11 @@ export default function ProductPageContent({ product }) {
         {product.totalInventory > 0 ? (
           <button onClick={handleAddToCart}>Add to Cart</button>
         ) : (
-          <button className="disabled" disabled>
-            Out of Stock
-          </button>
+          <button disabled>Out of Stock</button>
         )}
-      </div>
-    </section>
+
+        {banner ? <p>Item has been added to your cart!</p> : <p></p>}
+      </StyledProductContent>
+    </StyledProductPage>
   )
 }
