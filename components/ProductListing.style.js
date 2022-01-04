@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 
 export const StyledProductListing = styled.li`
-  width: 27%;
   background-color: var(--highlight);
   padding: 16px;
   text-align: center;
   margin-bottom: 24px;
+  @media (min-width: 768px) {
+    width: 44%;
+  }
+  @media (min-width: 1024px) {
+    width: 27%;
+  }
+
   &:hover {
     box-shadow: 13px 13px 0px 2px var(--secondary);
   }

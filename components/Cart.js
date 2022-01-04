@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import { useAppContext } from '../state'
 import CartTable from './CartTable'
 import CartTotal from './CartTotal'
@@ -46,10 +47,23 @@ export default function Cart() {
           <CartTotal cost={cost} />
         </div>
       ) : (
-        <div className="cart-page-message">
-          No products to show! Get shopping!
-        </div>
+        <StyledCartContainer>
+          <p>No products to show! Get shopping!</p>
+          <img src="/empty-cart.gif" alt="" />
+        </StyledCartContainer>
       )}
     </div>
   )
 }
+
+const StyledCartContainer = styled.div`
+  text-align: center;
+  margin: 16px 0;
+  & p {
+    margin: 22px 0;
+  }
+
+  & img {
+    margin: 0 auto;
+  }
+`

@@ -5,6 +5,7 @@ import {
   StyledProductPage,
   StyledProductImgContainer,
   StyledProductContent,
+  StyledAddedToCart,
 } from './ProductPage.style.js'
 
 function getCurrentVariantObject(vars, id) {
@@ -92,6 +93,7 @@ export default function ProductPageContent({ product }) {
     const data = await cartResponse.json()
     setCartId(data.id)
     showBanner(true)
+
     setCount(count + quantity)
 
     return data
@@ -125,7 +127,11 @@ export default function ProductPageContent({ product }) {
           <button disabled>Out of Stock</button>
         )}
 
-        {banner ? <p>Item has been added to your cart!</p> : <p></p>}
+        {banner && (
+          <StyledAddedToCart>
+            Item has been added to your cart!
+          </StyledAddedToCart>
+        )}
       </StyledProductContent>
     </StyledProductPage>
   )

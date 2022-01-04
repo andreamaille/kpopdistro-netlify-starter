@@ -12,8 +12,16 @@ export default function Footer() {
                 <a>About</a>
               </Link>
             </li>
-            <li>New Releases</li>
-            <li>Merch</li>
+            <li>
+              <Link href="/newReleases">
+                <a>New Releases</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart">
+                <a>Shopping Cart</a>
+              </Link>
+            </li>
           </ul>
           <ul>
             <li>KPOP DISTRO</li>

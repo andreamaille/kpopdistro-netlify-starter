@@ -73,11 +73,13 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	main ul {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
 		margin: 24px auto;
 		width: 95%;
+		@media (min-width: 768px) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
 	}
 
 	h3 {

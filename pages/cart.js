@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Cart from '@components/Cart'
+import styled from 'styled-components'
 import { useAppContext } from '../state'
 
 export default function CartPage() {
@@ -13,13 +14,18 @@ export default function CartPage() {
       </Head>
 
       <Header />
-      <main className="cart-page">
-        <article className="cart-page-content">
-          <h1>Your cart</h1>
+      <main>
+        <article>
+          <StyledH2>✨ Your Cart ✨</StyledH2>
           <Cart />
         </article>
       </main>
+
       <Footer />
     </>
   )
 }
+
+const StyledH2 = styled.h2`
+  text-align: center;
+`

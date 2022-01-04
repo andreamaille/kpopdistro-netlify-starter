@@ -24,5 +24,7 @@ export const StyledFineprint = styled.div`
   max-width: 1000px;
   margin: 16px auto;
   font-weight: 400;
-  font-size: var(--font-size-micro);
+  & p {
+    font-size: var(--font-size-micro);
+  }
 `

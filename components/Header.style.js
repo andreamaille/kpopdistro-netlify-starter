@@ -19,13 +19,14 @@ export const StyledH1 = styled.h1`
     rgba(255, 255, 255, 0) 50%,
     var(--highlight) 50%
   );
-  font-size: 80px;
+  font-size: 45px;
   text-transform: uppercase;
   text-align: center;
-  width: 700px;
   margin: 0 auto;
-  /* position: relative;
-  top: 18%; */
+  @media (min-width: 768px) {
+    font-size: 80px;
+    width: 700px;
+  }
   & a {
     color: var(--dark-pink);
   }

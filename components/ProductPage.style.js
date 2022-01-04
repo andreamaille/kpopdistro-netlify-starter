@@ -3,8 +3,15 @@ import styled from 'styled-components'
 export const StyledProductPage = styled.section`
   display: flex;
   align-items: center;
+  flex-direction: column;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
   & div {
-    width: 50%;
+    width: 100%;
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
   }
 
   img {
@@ -17,7 +24,7 @@ export const StyledProductPage = styled.section`
       rgba(255, 255, 255, 0) 50%,
       var(--highlight) 50%
     );
-    display: inline-block;
+    display: inline;
     width: auto;
     margin-bottom: 16px;
   }
@@ -53,4 +60,9 @@ export const StyledProductContent = styled.div`
     margin: 16px auto;
     display: inline-block;
   }
+`
+
+export const StyledAddedToCart = styled.p`
+  color: var(--secondary);
+  margin-top: 16px;
 `
