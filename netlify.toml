@@ -10,4 +10,4 @@
   autoLaunch = true
 
 [functions]
-  directory = "functions"
+  directory = "functions/"

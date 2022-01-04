@@ -36,8 +36,7 @@ export async function getStaticProps() {
   )
     .then(res => res.json())
     .then(response => {
-      console.log('--- built home page ---')
-      console.log(response)
+      console.log('--- built new releases ---')
       return response.collectionByHandle
     })
 
