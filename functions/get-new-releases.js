@@ -54,5 +54,3 @@ exports.handler = async () => {
     console.log(error)
   }
 }
-
-// new-releases

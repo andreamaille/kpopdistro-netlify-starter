@@ -12,7 +12,7 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link href="/newReleases">
+          <Link href="/new-releases">
             <a>New Releases</a>
           </Link>
         </li>
