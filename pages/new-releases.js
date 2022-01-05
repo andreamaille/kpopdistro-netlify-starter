@@ -21,7 +21,7 @@ export default function NewReleases({ newReleases }) {
           <NewReleasesCard
             key={`newRelease${index}`}
             product={p.node}
-            flexDirection={index / 2 === 0 ? 'row' : 'row-reverse'}
+            flexDirection={index % 2 === 0 ? 'row' : 'row-reverse'}
           />
         ))}
       </main>
